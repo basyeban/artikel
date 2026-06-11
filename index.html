@@ -13,6 +13,11 @@
     <nav>
         <div class="container">
             <a href="index.html" class="logo">Remaja<span>Muslim</span></a>
+            <button class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="#articles">Artikel</a></li>
@@ -20,6 +25,24 @@
             </ul>
         </div>
     </nav>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+    </script>
 
     <header class="hero">
         <div class="container">
